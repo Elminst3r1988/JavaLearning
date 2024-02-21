@@ -8,13 +8,17 @@ public class Main {
     public static void main(String[] args) throws IOException {
         int ecologicalMax = 750;
 
-        BufferedReader csvReader = new BufferedReader(new FileReader(PathConstants.PATH_TO_CSV));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(PathConstants.PATH_TO_CSV));
 
-        ReadFromCSV readFromCSV = new ReadFromCSV();
-        String[] rows = readFromCSV.linesCSV(csvReader);
+        CSVDataReader csvDataReader = new CSVDataReader();
+        StringBuilder csvData = csvDataReader.dataCSV(bufferedReader);
+        User[] users = csvDataReader.users(csvData);
+        String headers = csvDataReader.headers(csvData);
 
-        WriteDataCSV writeDataCSV = new WriteDataCSV();
-        String data = writeDataCSV.writingData(rows, ecologicalMax);
+
+
+        CSVDataWriter csvDataWriter = new CSVDataWriter();
+        String data = csvDataWriter.DataToCSV(users, ecologicalMax, headers);
 
         FileWriter fileWriter = new FileWriter(PathConstants.WRITE_PATH_TO_CSV);
         fileWriter.write(data);
