@@ -10,15 +10,16 @@ public class Main {
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(PathConstants.PATH_TO_CSV));
 
-        CSVDataReader csvDataReader = new CSVDataReader();
-        StringBuilder csvData = csvDataReader.dataCSV(bufferedReader);
+        CsvDataReader csvDataReader = new CsvDataReader();
+        StringBuilder csvData = csvDataReader.dataCsv(bufferedReader);
 
         User[] users = csvDataReader.users(csvData);
         String headers = csvDataReader.headers(csvData);
 
         EcoFilter ecoFilter = new EcoFilter();
 
-        CSVDataWriter csvDataWriter = new CSVDataWriter();
+        CsvDataWriter csvDataWriter = new CsvDataWriter();
+
         String data = csvDataWriter.DataToCSV(ecoFilter.ecoUsers(ecologicalMax, users), ecologicalMax, headers);
 
         FileWriter fileWriter = new FileWriter(PathConstants.WRITE_PATH_TO_CSV);

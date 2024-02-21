@@ -1,15 +1,14 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class CSVDataReader {
+public class CsvDataReader {
     private String row;
     private User[] users;
     private String[] lines;
     private StringBuilder data;
 
 
-
-    public StringBuilder dataCSV(BufferedReader csvReader) throws IOException {
+    public StringBuilder dataCsv(BufferedReader csvReader) throws IOException {
         data = new StringBuilder();
         while ((row = csvReader.readLine()) != null) {
             data.append(row + " ");
