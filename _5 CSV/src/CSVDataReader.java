@@ -8,6 +8,7 @@ public class CSVDataReader {
     private StringBuilder data;
 
 
+
     public StringBuilder dataCSV(BufferedReader csvReader) throws IOException {
         data = new StringBuilder();
         while ((row = csvReader.readLine()) != null) {

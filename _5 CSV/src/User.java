@@ -6,19 +6,13 @@ public class User {
     private int gasСount2;
     private int electroСount1;
     private int electroСount2;
-
     private final String DELIMETR = "|";
 
-    public User(){
+    public User() {
 
     }
-    public User(int id,
-                String name,
-                int waterСount,
-                int gasСount1,
-                int gasСount2,
-                int electroСount1,
-                int electroСount2){
+
+    public User(int id, String name, int waterСount, int gasСount1, int gasСount2, int electroСount1, int electroСount2) {
         this.id = id;
         this.name = name;
         this.waterСount = waterСount;
@@ -57,8 +51,8 @@ public class User {
     }
 
     @Override
-    public String toString(){
-        return String.format("%d%s%s%s%d%s%d%s%d%s%d%s%d%s",this.getId(),
+    public String toString() {
+        return String.format("%d%s%s%s%d%s%d%s%d%s%d%s%d%s", this.getId(),
                 DELIMETR,
                 this.getName(),
                 DELIMETR,
@@ -72,6 +66,6 @@ public class User {
                 DELIMETR,
                 this.getElectroСount2(),
                 "\n"
-                );
+        );
     }
 }
