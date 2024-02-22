@@ -3,14 +3,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class JokeCreator {
-    public void searchFiles(File rootFile) throws IOException {
-        if (rootFile.isDirectory()) {
-            createJokeFile(rootFile);
-            File[] directoryFiles = rootFile.listFiles();
+    public void searchFolders(File rootFolder) throws IOException {
+        if (rootFolder.isDirectory()) {
+            createJokeFile(rootFolder);
+            File[] directoryFiles = rootFolder.listFiles();
             if (directoryFiles != null) {
                 for (File file : directoryFiles) {
                     if (file.isDirectory()) {
-                        searchFiles(file);
+                        searchFolders(file);
                         createJokeFile(file);
                     }
                 }
