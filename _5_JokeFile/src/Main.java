@@ -1,13 +1,16 @@
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String rootFolder = "F:\\Java";
-        File dir = new File(rootFolder);
-        JokeCreator jokeCreator = new JokeCreator();
-        jokeCreator.searchFolders(dir);
+        Files.walkFileTree(Paths.get("F:\\Java"), new JokeFileVisitor());
+
     }
 }
+
+
+
+
 
 
