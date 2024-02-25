@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        int ecologicalMax = 300;
+        int ecologicalMax = 600;
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(PathConstants.PATH_TO_CSV));
 
@@ -20,7 +20,7 @@ public class Main {
 
         CsvDataWriter csvDataWriter = new CsvDataWriter();
 
-        String data = csvDataWriter.DataToCSV(ecoFilter.ecoUsers(ecologicalMax, users), ecologicalMax, headers);
+        String data = csvDataWriter.DataToCSV(ecoFilter.ecoUsers(ecologicalMax, users), headers);
 
         FileWriter fileWriter = new FileWriter(PathConstants.WRITE_PATH_TO_CSV);
         fileWriter.write(data);
